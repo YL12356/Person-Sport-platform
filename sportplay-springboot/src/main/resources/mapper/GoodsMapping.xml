@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lovesport.sportplay.dao.GoodsDao">
+    <select id="getAllGoods" resultType="com.lovesport.sportplay.bean.Goods">
+        SELECT * FROM goods
+    </select>
+
+    <select id="getGoodsByCategory" resultType="com.lovesport.sportplay.bean.Goods">
+        SELECT * FROM goods WHERE category = #{category}
+    </select>
+
+    <insert id="addGoods" parameterType="com.lovesport.sportplay.bean.Goods">
+        INSERT INTO goods (category, pname, pimg, price)
+        VALUES (#{category}, #{pname}, #{pimg}, #{price})
+    </insert>
+
+    <delete id="deleteGoods" parameterType="int">
+        DELETE FROM goods WHERE id = #{id}
+    </delete>
+</mapper>
